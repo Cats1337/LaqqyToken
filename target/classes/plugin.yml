@@ -1,0 +1,33 @@
+name: LaqqyToken
+main: io.github.cats1337.TokenMain
+version: 0.0.1
+api-version: 1.19
+author: Cats
+description: Laqqy is holding me hostage.
+prefix: Token
+
+commands:
+  token:
+    description: Gives the specified player a token
+    usage: /token <player> <amount>
+    permission: laqqytoken.token
+  checktoken:
+    description: Checks the number of tokens you have
+    usage: /checktoken
+    permission: laqqytoken.checktoken
+  getlb:
+    description: Runs the command `lb give <player> random`
+    usage: /getlb
+    permission: laqqytoken.getlb
+
+permissions:
+  laqqytoken.token:
+    description: Allows the player to give tokens to other players.
+    default: op
+    op: true
+  laqqytoken.checktoken:
+    description: Allows the player to check the number of tokens they have.
+    default: true
+  laqqytoken.getlb:
+    description: Allows the player to redeem tokens for a Lucky Block.
+    default: true
