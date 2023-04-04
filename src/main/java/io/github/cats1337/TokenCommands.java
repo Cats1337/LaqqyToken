@@ -24,6 +24,13 @@ public class TokenCommands implements CommandExecutor {
                 UUID uuid = player.getUniqueId();
                 int tokens = tokenData.getTokens(uuid);
                 if (tokens >= 1) {
+                    // check the players inventory to make sure they have an open slot
+                    // if they do not have an open slot, send them a message saying they need to make room
+                    // if they do have an open slot, remove a token and give them a lucky block
+                    if (player.getInventory().firstEmpty() == -1) {
+                        player.sendMessage(ChatColor.RED + "You do not have enough room in your inventory to redeem a Lucky Block.");
+                        return true;
+                    }
                     tokenData.setTokens(uuid, tokens - 1);
                     tokenData.save();
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lb give " + player.getName() + " random");
@@ -52,7 +59,7 @@ public class TokenCommands implements CommandExecutor {
             }
         }
 
-        if (command.getName().equalsIgnoreCase("token")) {
+        if (command.getName().equalsIgnoreCase("token") && sender.hasPermission("laqqytoken.token")) {
             if (args.length == 0) {
                 sender.sendMessage(ChatColor.RED + "Usage: /token <player> <amount>");
                 sender.sendMessage(ChatColor.RED + "Usage: /checktoken");
