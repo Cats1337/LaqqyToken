@@ -20,6 +20,7 @@ public class TokenMain extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
         
         getCommand("token").setExecutor(new TokenCommands(this));
+        getCommand("tokenall").setExecutor(new TokenCommands(this));
         getCommand("checktoken").setExecutor(new TokenCommands(this));
         getCommand("getlb").setExecutor(new TokenCommands(this));
 

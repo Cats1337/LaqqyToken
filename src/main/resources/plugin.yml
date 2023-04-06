@@ -1,6 +1,6 @@
 name: LaqqyToken
 main: io.github.cats1337.TokenMain
-version: 0.0.1
+version: 0.0.2
 api-version: 1.19
 author: Cats
 description: Laqqy is holding me hostage.
@@ -10,6 +10,10 @@ commands:
   token:
     description: Gives the specified player a token
     usage: /token <player> <amount>
+    permission: laqqytoken.token
+  tokenall:
+    description: Gives all players a token
+    usage: /tokenall <amount>
     permission: laqqytoken.token
   checktoken:
     description: Checks the number of tokens you have
