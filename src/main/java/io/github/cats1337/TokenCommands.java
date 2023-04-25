@@ -128,7 +128,7 @@ public class TokenCommands implements CommandExecutor {
             tokenData.save();
 
             sender.sendMessage(ChatColor.YELLOW + " " + ChatColor.GREEN + "Gave " + target.getName() + " " + tokens + " tokens.");
-            target.sendMessage(ChatColor.YELLOW + " " + ChatColor.GREEN + "You have received " + tokens + " token(s)." + ChatColor.DARK_GRAY + " /getlb");
+            target.sendMessage(ChatColor.YELLOW + " " + ChatColor.GREEN + "You have received " + tokens + " lucky block(s)." + ChatColor.YELLOW + " /getlb");
             return true;
         }
 
@@ -151,7 +151,7 @@ public class TokenCommands implements CommandExecutor {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 UUID uuid = player.getUniqueId();
                 tokenData.setTokens(uuid, tokenData.getTokens(uuid) + tokens);
-                player.sendMessage(ChatColor.YELLOW + " " + ChatColor.GREEN + "You have received " + tokens + " token(s)." + ChatColor.DARK_GRAY + " /getlb");
+                player.sendMessage(ChatColor.YELLOW + " " + ChatColor.GREEN + "You have received " + tokens + " lucky block(s)." + ChatColor.YELLOW + " /getlb");
                 count++;
             }
         
